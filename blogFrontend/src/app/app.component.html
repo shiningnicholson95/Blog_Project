@@ -1,0 +1,15 @@
+<div class="container">
+  <h1 style="text-align:center;background-color:black;color:white">Welcome to Blog Application</h1>
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['allBlogs']" class="nav-link" href="#"> See all Blogs</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"> Edit Blog</a>
+    </li>
+  </ul>
+</div>
+<router-outlet></router-outlet>

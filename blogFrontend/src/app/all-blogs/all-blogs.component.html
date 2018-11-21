@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row" style="margin-top:130px;margin-left:10px;">
+    <div *ngFor="let blog of TotalBlogs" class="col-md-4">
+      <div class="card" style="width: 18rem; padding:5px;">
+        <img class="card-img-top" src="{{blog.Poster}}" style="height:20vh;" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{blog.Title}}</h5>
+          <p class="card-text"><small>Genre: {{blog.Genre}}</small></p>
+          <p class="card-text"><small>Author: {{blog.Author}}</small></p>
+          <p class="card-text">"{{blog.Description}}"</p>
+          <a [routerLink]="['/blog',blog.Id ]" class="btn btn-primary">read more.</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
