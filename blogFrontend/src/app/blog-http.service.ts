@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 // importing http requests functionality
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/do'
-
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { observable } from 'rxjs';
+import { catchError, tap  } from 'rxjs/operators'; // this was a big mofo to get out of my back but i did it nonetheless. the problem was
+//that the above 
 @Injectable({
   providedIn: 'root'
 })
