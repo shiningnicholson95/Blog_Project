@@ -7,7 +7,7 @@
           <h5 class="card-title">{{blog.Title}}</h5>
           <p class="card-text"><small>Genre: {{blog.Genre}}</small></p>
           <p class="card-text"><small>Author: {{blog.Author}}</small></p>
-          <p class="card-text">"{{blog.Description}}"</p>
+          <p class="card-text">"{{blog.bodyHTML}}"</p>
           <a [routerLink]="['/blog',blog.Id ]" class="btn btn-primary">read more.</a>
         </div>
       </div>
