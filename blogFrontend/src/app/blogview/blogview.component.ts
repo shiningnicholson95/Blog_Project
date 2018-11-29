@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BlogService } from '../blog.service';
+import { BlogHttpService } from '../blog-http.service'
 @Component({
   selector: 'app-blogview',
   templateUrl: './blogview.component.html',
@@ -8,7 +9,7 @@ import { BlogService } from '../blog.service';
 })
 export class BlogviewComponent implements OnInit, OnDestroy {
   public currentBlog;
-  constructor(private _route: ActivatedRoute, private router: Router, public blogService:BlogService) {
+  constructor(private _route: ActivatedRoute, private router: Router, public blogService:BlogService,public blogHttpService:BlogHttpService) {
     console.log("constructor of blogview called!")
   }
 

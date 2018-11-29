@@ -1,5 +1,5 @@
 import { Component, OnInit,OnDestroy } from '@angular/core';
-import { BlogService } from '../blog.service';
+import { BlogHttpService } from '../blog-http.service';
 @Component({
   selector: 'app-all-blogs',
   templateUrl: './all-blogs.component.html',
@@ -7,14 +7,25 @@ import { BlogService } from '../blog.service';
 })
 export class AllBlogsComponent implements OnInit,OnDestroy {
 public TotalBlogs;
-  constructor(public blogService:BlogService) { 
-    console.log("All blogs contructor called through services")
+  constructor(public blogHttpService:BlogHttpService) { 
+    console.log("All blogs contructor called through http services")
   }
 
   ngOnInit() {
     console.log("AllBlogs component called")
-    this.TotalBlogs=this.blogService.getAllBlogs();
-    console.log(this.TotalBlogs)
+   // this.TotalBlogs=this.blogHttpService.getAllBlogs();
+this.TotalBlogs = this.blogHttpService.getAllBlogs().subscribe(
+  data =>{
+    console.log(data);
+    this.TotalBlogs = data["data"];
+  },
+  error =>{
+    console.log('Some error occured')
+    console.log(error.errorMessage);
+  }
+)
+console.log(this.TotalBlogs)
+
   }
   ngOnDestroy(){
     console.log("All Blogs component Destroyed.")

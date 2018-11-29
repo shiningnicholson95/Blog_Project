@@ -1,8 +1,13 @@
+/*
+SIDENOTE: the rxjs mofo is gonna give you headache coz of compatibility issue to avoid that get the command npm i rxjs-compat running
+SHIYYYAATTTT!
+*/
 import { Injectable } from '@angular/core';
 // importing http requests functionality
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { observable } from 'rxjs';
-import { catchError, tap  } from 'rxjs/operators'; // this was a big mofo to get out of my back but i did it nonetheless. the problem was
+import {Observable} from 'rxjs/observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/do'; // this was a big mofo to get out of my back but i did it nonetheless. the problem was
 //that the above 
 @Injectable({
   providedIn: 'root'
@@ -44,11 +49,11 @@ export class BlogHttpService {
     console.log("blog http service was called");
   }
   public getAllBlogs(): any {
-    let myResponse = this._http.get(this.baseUrl+'/all');
+    let myResponse = this._http.get(this.baseUrl+'/all?authToken=ZDA5MjVmZDEzMzY4MmEyMzJkZjVkYjUzYWQ5ZGMyMTk1YWNkYzgxOWEyNTZlOGMxY2RlNzQ2ZWJjNjk5MmVkODBlMjI5NzViYWUwYTdjMGFhM2NhZDg4MDc3ZjI5MjQxZjczYThjYzE0YjRiYjY2ZTNkMDAxOWFiNTZjNWE1NGJjNg==');
     console.log(myResponse)
     return myResponse;
   }
   public getSingleBlog(currentBlogId): any {
-
+ 
   }
 }
